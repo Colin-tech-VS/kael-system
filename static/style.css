@@ -1,0 +1,93 @@
+/* Style minimaliste pour Kael System */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2C3E50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2C3E50;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2C3E50;
+}
+
+.documentation-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.documentation-link a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #2C3E50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.documentation-link a:hover {
+    background-color: #1a2530;
+}
