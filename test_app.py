@@ -63,3 +63,17 @@ def test_health_endpoint_detailed(client):
     response = client.get('/health')
     end = time.time()
     assert end - start < 1.0  # Doit répondre en moins de 1 seconde
+
+def test_404_handling(client):
+    """Test la gestion des erreurs 404"""
+    response = client.get('/this-page-does-not-exist')
+    assert response.status_code == 404
+
+def test_api_health_structure(client):
+    """Test la structure de l'endpoint API health"""
+    response = client.get('/api/health')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert 'status' in data
+    assert 'timestamp' in data
+    assert data['status'] == 'healthy'
