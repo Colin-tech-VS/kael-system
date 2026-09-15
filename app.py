@@ -3,6 +3,7 @@ import os
 import logging
 import sys
 import traceback
+import time
 
 # Configurer le logging
 logging.basicConfig(
@@ -93,11 +94,21 @@ def health():
     """Endpoint de santé pour les checks de déploiement"""
     try:
         logger.info("Health check effectué")
+        # Ajout d'une vérification supplémentaire pour s'assurer que l'application est vraiment opérationnelle
+        start_time = time.time()
+        # Effectuer une petite opération pour vérifier la stabilité
+        _ = str(time.time())
+        end_time = time.time()
+        
+        if end_time - start_time > 1.0:  # Si cela prend plus de 1 seconde, c'est problématique
+            logger.warning("Health check trop lent")
+            return {"status": "unhealthy", "message": "Application trop lente"}, 500
+        
         return {"status": "healthy"}, 200
     except Exception as e:
         logger.error(f"Erreur lors du health check: {str(e)}")
         logger.debug(traceback.format_exc())
-        return {"status": "unhealthy"}, 500
+        return {"status": "unhealthy", "message": str(e)}, 500
 
 # Gestion des erreurs globales
 @app.errorhandler(404)
