@@ -4,6 +4,7 @@ import logging
 import sys
 import traceback
 import time
+import json
 
 # Configurer le logging
 logging.basicConfig(
@@ -100,13 +101,37 @@ def health():
         _ = str(time.time())
         end_time = time.time()
         
+        # Vérification de la latence
         if end_time - start_time > 1.0:  # Si cela prend plus de 1 seconde, c'est problématique
             logger.warning("Health check trop lent")
             return {"status": "unhealthy", "message": "Application trop lente"}, 500
         
+        # Vérification que les fichiers de base sont accessibles
+        try:
+            # Vérifier l'accès à index.html
+            test_file = os.path.join(STATIC_FOLDER, 'index.html')
+            if not os.path.exists(test_file):
+                logger.error("Fichier index.html introuvable")
+                return {"status": "unhealthy", "message": "Fichier principal introuvable"}, 500
+        except Exception as file_error:
+            logger.error(f"Erreur lors de la vérification des fichiers: {str(file_error)}")
+            return {"status": "unhealthy", "message": "Erreur d'accès aux fichiers"}, 500
+            
         return {"status": "healthy"}, 200
     except Exception as e:
         logger.error(f"Erreur lors du health check: {str(e)}")
+        logger.debug(traceback.format_exc())
+        return {"status": "unhealthy", "message": str(e)}, 500
+
+@app.route('/api/health')
+def api_health():
+    """Endpoint de santé pour les checks API"""
+    try:
+        logger.info("API Health check effectué")
+        # Vérification rapide de la disponibilité
+        return {"status": "healthy", "timestamp": time.time()}, 200
+    except Exception as e:
+        logger.error(f"Erreur lors du health check API: {str(e)}")
         logger.debug(traceback.format_exc())
         return {"status": "unhealthy", "message": str(e)}, 500
 

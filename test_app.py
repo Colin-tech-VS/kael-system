@@ -1,4 +1,5 @@
 import pytest
+import os
 from app import app
 
 @pytest.fixture
@@ -16,7 +17,16 @@ def test_health_endpoint(client):
     """Test l'endpoint de santé"""
     response = client.get('/health')
     assert response.status_code == 200
-    assert response.get_json()['status'] == 'healthy'
+    data = response.get_json()
+    assert data['status'] == 'healthy'
+
+def test_api_health_endpoint(client):
+    """Test l'endpoint de santé API"""
+    response = client.get('/api/health')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert data['status'] == 'healthy'
+    assert 'timestamp' in data
 
 def test_static_files(client):
     """Test l'accès aux fichiers statiques"""
@@ -27,3 +37,29 @@ def test_static_files(client):
     # Test avec un fichier CSS
     response = client.get('/css/style.css')
     assert response.status_code == 200
+
+def test_nonexistent_file(client):
+    """Test l'accès à un fichier inexistant"""
+    response = client.get('/nonexistent.html')
+    assert response.status_code == 404
+
+def test_security_access(client):
+    """Test la sécurité d'accès aux fichiers"""
+    # Tentative d'accès à un fichier en dehors du dossier statique
+    response = client.get('/../etc/passwd')
+    assert response.status_code == 403
+
+def test_health_endpoint_detailed(client):
+    """Test détaillé de l'endpoint de santé"""
+    response = client.get('/health')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert 'status' in data
+    assert data['status'] == 'healthy'
+    
+    # Vérifier que l'application répond rapidement
+    import time
+    start = time.time()
+    response = client.get('/health')
+    end = time.time()
+    assert end - start < 1.0  # Doit répondre en moins de 1 seconde
