@@ -23,6 +23,14 @@ def read_html_file(filename):
     """Lire un fichier HTML et le renvoyer"""
     try:
         file_path = os.path.join(STATIC_FOLDER, filename)
+        # Sécurité : empêcher l'accès à des fichiers en dehors du dossier statique
+        abs_path = os.path.abspath(file_path)
+        abs_static = os.path.abspath(STATIC_FOLDER)
+        
+        if not abs_path.startswith(abs_static):
+            logger.warning(f"Tentative d'accès à un fichier en dehors du dossier statique: {filename}")
+            return "Accès non autorisé", 403
+            
         if os.path.exists(file_path) and os.path.isfile(file_path):
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -55,7 +63,26 @@ def serve_static(filename):
             return read_html_file(filename)
         else:
             # Pour les autres types de fichiers, utiliser send_from_directory
-            return send_from_directory(STATIC_FOLDER, filename)
+            # Vérification de sécurité : ne permettre que les fichiers dans le dossier statique
+            safe_path = os.path.normpath(filename)
+            if safe_path.startswith('..') or safe_path.startswith('/'):
+                logger.warning(f"Tentative d'accès à un fichier avec chemin non sécurisé: {filename}")
+                return "Accès non autorisé", 403
+                
+            # Vérifier que le fichier existe bien dans le dossier statique
+            full_path = os.path.join(STATIC_FOLDER, safe_path)
+            abs_full_path = os.path.abspath(full_path)
+            abs_static = os.path.abspath(STATIC_FOLDER)
+            
+            if not abs_full_path.startswith(abs_static):
+                logger.warning(f"Tentative d'accès à un fichier en dehors du dossier statique: {filename}")
+                return "Accès non autorisé", 403
+                
+            if os.path.exists(full_path) and os.path.isfile(full_path):
+                return send_from_directory(STATIC_FOLDER, safe_path)
+            else:
+                logger.warning(f"Fichier non trouvé: {filename}")
+                return "Fichier non trouvé", 404
     except Exception as e:
         logger.error(f"Erreur lors du rendu du fichier {filename}: {str(e)}")
         logger.debug(traceback.format_exc())
