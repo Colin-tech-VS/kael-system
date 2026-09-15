@@ -84,7 +84,11 @@ def internal_error(error):
     logger.debug(traceback.format_exc())
     return "Erreur interne du serveur", 500
 
+# Ajout de la gestion de la requête pour le handler d'erreur 404
+from flask import request
+
 if __name__ == '__main__':
+    # Utiliser un port spécifique pour éviter les conflits
     port = int(os.environ.get('PORT', 8000))
     logger.info(f"Démarrage du serveur sur le port {port}")
     try:
