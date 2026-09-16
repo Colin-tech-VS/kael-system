@@ -26,11 +26,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.classList.add('scrolled');
+        header.style.background = 'rgba(20, 20, 20, 0.95)';
+        header.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.2)';
     } else {
-        header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-        header.style.background = 'white';
+        header.classList.remove('scrolled');
+        header.style.background = 'rgba(20, 20, 255, 0.9)';
+        header.style.boxShadow = 'none';
     }
 });
 
@@ -87,4 +89,16 @@ featureDetails.forEach(detail => {
 document.addEventListener('DOMContentLoaded', () => {
     // Add any initialization code here
     console.log('Kael System website loaded successfully');
+    
+    // Add animation to hero section
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.opacity = 0;
+        heroContent.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+            heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            heroContent.style.opacity = 1;
+            heroContent.style.transform = 'translateY(0)';
+        }, 300);
+    }
 });
