@@ -23,6 +23,15 @@
   --hover-glow: 0 0 15px rgba(0, 243, 255, 0.4);
   --hover-glow-secondary: 0 0 15px rgba(0, 255, 157, 0.4);
   --hover-glow-accent: 0 0 15px rgba(255, 0, 255, 0.4);
+  
+  /* Couleurs Iron Man */
+  --ironman-red: #e52521;
+  --ironman-yellow: #f8e71c;
+  --ironman-gray: #333333;
+  --ironman-dark: #1a1a1a;
+  --ironman-light: #f0f0f0;
+  --ironman-glow: rgba(229, 37, 33, 0.7);
+  --ironman-glow-yellow: rgba(248, 231, 28, 0.7);
 }
 
 /* Reset et base */
@@ -134,6 +143,8 @@ img {
   border-bottom: 1px solid var(--glass-border);
   padding: 0.5rem 0;
   transition: var(--transition);
+  border: 1px solid rgba(229, 37, 33, 0.3);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.2);
 }
 
 .header.scrolled {
@@ -179,6 +190,7 @@ img {
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 6px;
+  border: 1px solid rgba(229, 37, 33, 0.3);
 }
 
 .header nav ul li a.active,
@@ -187,6 +199,8 @@ img {
   text-shadow: 0 0 10px var(--glow-color);
   background: rgba(0, 243, 255, 0.1);
   box-shadow: var(--hover-glow);
+  border-color: var(--ironman-red);
+  animation: pulse 2s infinite;
 }
 
 .header nav ul li a::after {
@@ -232,6 +246,8 @@ img {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 30px rgba(229, 37, 33, 0.1);
 }
 
 .hero::before {
@@ -251,12 +267,26 @@ img {
 .hero-content h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  text-shadow: 0 0 20px rgba(229, 37, 33, 0.3);
   animation: pulse 2s infinite;
   letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
+  box-shadow: 0 0 10px var(--ironman-glow);
+  border-radius: 3px;
 }
 
 .hero-content p {
@@ -267,6 +297,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .cta-buttons {
@@ -299,6 +330,11 @@ img {
   position: relative;
   z-index: 1;
   border: 1px solid transparent;
+  background: var(--dark-color);
+  color: var(--white);
+  border: 1px solid rgba(229, 37, 33, 0.5);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.2);
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .btn::before {
@@ -308,7 +344,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(45deg, var(--ironman-red), var(--ironman-yellow));
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -319,15 +355,17 @@ img {
   background: transparent;
   color: var(--white);
   box-shadow: 0 0 15px var(--glow-color);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--ironman-red);
+  border: 1px solid rgba(229, 37, 33, 0.5);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 25px rgba(0, 243, 255, 0.4);
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 5px 25px rgba(229, 37, 33, 0.4);
+  background: linear-gradient(45deg, var(--ironman-red), var(--ironman-yellow));
   color: var(--dark-color);
   border-color: transparent;
+  animation: pulse 2s infinite;
 }
 
 .btn-primary:hover::before {
@@ -336,17 +374,19 @@ img {
 
 .btn-secondary {
   background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  color: var(--ironman-red);
+  border: 2px solid var(--ironman-red);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.2);
+  border: 1px solid rgba(229, 37, 33, 0.5);
 }
 
 .btn-secondary:hover {
-  background: var(--primary-color);
+  background: var(--ironman-red);
   color: var(--dark-color);
   transform: translateY(-3px);
-  box-shadow: 0 5px 25px rgba(0, 243, 255, 0.4);
+  box-shadow: 0 5px 25px rgba(229, 37, 33, 0.4);
   border-color: transparent;
+  animation: pulse 2s infinite;
 }
 
 .btn-link {
@@ -379,6 +419,7 @@ img {
   display: inline-block;
   padding-bottom: 1.2rem;
   margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px var(--glow-color);
 }
 
 .section-header h2::after {
@@ -389,9 +430,9 @@ img {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   border-radius: 4px;
-  box-shadow: 0 0 15px var(--glow-color);
+  box-shadow: 0 0 15px var(--ironman-glow);
   transition: var(--transition);
 }
 
@@ -413,6 +454,8 @@ img {
   border-bottom: 1px solid var(--glass-border);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .about-section::before {
@@ -450,11 +493,12 @@ img {
   filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.2));
   transition: var(--transition);
   transform: scale(1);
+  border: 1px solid rgba(229, 37, 33, 0.3);
 }
 
 .about-image img:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 30px rgba(229, 37, 33, 0.3);
 }
 
 /* Features Section */
@@ -465,6 +509,7 @@ img {
     var(--dark-color);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.1);
 }
 
 .features-section::before {
@@ -499,16 +544,19 @@ img {
   overflow: hidden;
   transform: translateY(0);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
   padding: 2.5rem 2rem;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .feature-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 25px rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .feature-card::before {
@@ -518,7 +566,7 @@ img {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease;
@@ -537,6 +585,8 @@ img {
   filter: drop-shadow(0 0 10px var(--glow-color));
   transition: var(--transition);
   animation: pulse 2s infinite;
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .feature-card:hover .feature-icon {
@@ -550,6 +600,7 @@ img {
   font-size: 1.8rem;
   color: var(--white);
   transition: var(--transition);
+  text-shadow: 0 0 10px var(--glow-color);
 }
 
 .feature-card:hover h3 {
@@ -576,6 +627,8 @@ img {
   border-bottom: 1px solid var(--glass-border);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .why-choose-section::before {
@@ -608,15 +661,18 @@ img {
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .advantage-item:hover {
   transform: translateY(-10px);
   box-shadow: var(--card-shadow);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 25px rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .advantage-icon {
@@ -627,6 +683,8 @@ img {
   filter: drop-shadow(0 0 10px var(--glow-color));
   transition: var(--transition);
   animation: pulse 2s infinite;
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .advantage-item:hover .advantage-icon {
@@ -640,6 +698,7 @@ img {
   font-size: 1.8rem;
   color: var(--white);
   transition: var(--transition);
+  text-shadow: 0 0 10px var(--glow-color);
 }
 
 .advantage-item:hover h3 {
@@ -665,6 +724,7 @@ img {
     var(--dark-color);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.1);
 }
 
 .testimonials-section::before {
@@ -696,15 +756,18 @@ img {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
+  animation: pulse 2s infinite;
 }
 
 .testimonial-card::before {
@@ -755,6 +818,8 @@ img {
   border-top: 1px solid var(--glass-border);
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .footer::before {
@@ -800,11 +865,12 @@ img {
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 0.75rem;
-  color: var(--primary-color);
+  color: var(--ironman-red);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1.2rem;
   transition: var(--transition);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .footer-column h4::after {
@@ -814,9 +880,9 @@ img {
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   border-radius: 3px;
-  box-shadow: 0 0 10px var(--glow-color);
+  box-shadow: 0 0 10px var(--ironman-glow);
   transition: var(--transition);
 }
 
@@ -849,8 +915,8 @@ img {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--primary-color);
-  text-shadow: 0 0 5px var(--glow-color);
+  color: var(--ironman-red);
+  text-shadow: 0 0 5px var(--ironman-glow);
   transition: var(--transition);
 }
 
@@ -873,15 +939,17 @@ img {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .features-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  text-shadow: 0 0 20px rgba(229, 37, 33, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -891,6 +959,7 @@ img {
   max-width: 700px;
   margin: 1.5rem auto 0;
   line-height: 1.6;
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .feature-detail {
@@ -913,11 +982,12 @@ img {
   filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.2));
   transition: var(--transition);
   transform: scale(1);
+  border: 1px solid rgba(229, 37, 33, 0.3);
 }
 
 .feature-image img:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 30px rgba(229, 37, 33, 0.3);
 }
 
 .feature-description h3 {
@@ -926,6 +996,9 @@ img {
   color: var(--white);
   text-shadow: 0 0 10px var(--glow-color);
   animation: fadeInUp 0.8s ease-out;
+  text-shadow: 0 0 10px var(--glow-color);
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .feature-description ul {
@@ -953,6 +1026,8 @@ img {
   text-shadow: 0 0 5px var(--glow-color);
   font-size: 1.3rem;
   transition: var(--transition);
+  color: var(--ironman-red);
+  text-shadow: 0 0 5px var(--ironman-glow);
 }
 
 .feature-description ul li:hover::before {
@@ -971,15 +1046,17 @@ img {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .integrations-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  text-shadow: 0 0 20px rgba(229, 37, 33, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -989,6 +1066,7 @@ img {
   max-width: 700px;
   margin: 1.5rem auto 0;
   line-height: 1.6;
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .integrations-grid {
@@ -1011,15 +1089,18 @@ img {
   overflow: hidden;
   transform: translateY(0);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .integration-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 25px rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .integration-icon {
@@ -1030,6 +1111,8 @@ img {
   filter: drop-shadow(0 0 10px var(--glow-color));
   transition: var(--transition);
   animation: pulse 2s infinite;
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .integration-card:hover .integration-icon {
@@ -1043,6 +1126,9 @@ img {
   font-size: 1.8rem;
   color: var(--white);
   transition: var(--transition);
+  text-shadow: 0 0 10px var(--glow-color);
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .integration-card:hover h3 {
@@ -1064,6 +1150,8 @@ img {
   letter-spacing: 1px;
   box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
   transition: var(--transition);
+  border: 1px solid rgba(229, 37, 33, 0.3);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.2);
 }
 
 .status-active {
@@ -1071,12 +1159,20 @@ img {
   color: var(--success-color);
   border: 1px solid rgba(0, 255, 157, 0.3);
   animation: pulse 2s infinite;
+  background: rgba(229, 37, 33, 0.1);
+  color: var(--ironman-red);
+  border: 1px solid rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .status-pending {
   background: rgba(255, 204, 0, 0.1);
   color: var(--warning-color);
   border: 1px solid rgba(255, 204, 0, 0.3);
+  animation: pulse 2s infinite;
+  background: rgba(248, 231, 28, 0.1);
+  color: var(--ironman-yellow);
+  border: 1px solid rgba(248, 231, 28, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -1096,15 +1192,18 @@ img {
   border: 1px solid var(--glass-border);
   transition: var(--transition);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .step:hover {
   transform: translateY(-10px);
   box-shadow: var(--card-shadow);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 25px rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .step-number {
@@ -1114,18 +1213,19 @@ img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(45deg, var(--ironman-red), var(--ironman-yellow));
   color: var(--dark-color);
   font-weight: bold;
   margin-bottom: 2rem;
-  box-shadow: 0 0 20px var(--glow-color);
+  box-shadow: 0 0 20px var(--ironman-glow);
   transition: var(--transition);
   animation: pulse 2s infinite;
+  box-shadow: 0 0 20px var(--ironman-glow);
 }
 
 .step-number:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 25px var(--glow-color);
+  box-shadow: 0 0 25px var(--ironman-glow);
 }
 
 /* Documentation Page */
@@ -1139,15 +1239,17 @@ img {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .documentation-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  text-shadow: 0 0 20px rgba(229, 37, 33, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -1157,6 +1259,7 @@ img {
   max-width: 700px;
   margin: 1.5rem auto 0;
   line-height: 1.6;
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .docs-categories {
@@ -1179,15 +1282,18 @@ img {
   overflow: hidden;
   transform: translateY(0);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.1);
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.1);
 }
 
 .category-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border-color: var(--primary-color);
+  border-color: var(--ironman-red);
   background: rgba(10, 25, 41, 0.8);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 25px rgba(229, 37, 33, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .category-icon {
@@ -1198,6 +1304,8 @@ img {
   filter: drop-shadow(0 0 10px var(--glow-color));
   transition: var(--transition);
   animation: pulse 2s infinite;
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .category-card:hover .category-icon {
@@ -1211,6 +1319,9 @@ img {
   font-size: 1.8rem;
   color: var(--white);
   transition: var(--transition);
+  text-shadow: 0 0 10px var(--glow-color);
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .category-card:hover h3 {
@@ -1232,6 +1343,8 @@ img {
 .category-card .btn {
   margin-top: 1.5rem;
   transition: var(--transition);
+  border: 1px solid rgba(229, 37, 33, 0.5);
+  box-shadow: 0 0 15px rgba(229, 37, 33, 0.2);
 }
 
 /* Contact Page */
@@ -1245,15 +1358,17 @@ img {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .contact-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--ironman-red), var(--ironman-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  text-shadow: 0 0 20px rgba(229, 37, 33, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -1263,6 +1378,7 @@ img {
   max-width: 700px;
   margin: 1.5rem auto 0;
   line-height: 1.6;
+  text-shadow: 0 0 5px rgba(229, 37, 33, 0.5);
 }
 
 .contact-container {
@@ -1279,6 +1395,8 @@ img {
   margin-bottom: 2rem;
   color: var(--white);
   text-shadow: 0 0 10px var(--glow-color);
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .form-group {
@@ -1305,15 +1423,17 @@ img {
   color: var(--white);
   box-shadow: inset 0 0 5px rgba(0, 243, 255, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid rgba(229, 37, 33, 0.3);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 243, 255, 0.2);
+  border-color: var(--ironman-red);
+  box-shadow: 0 0 0 3px rgba(229, 37, 33, 0.2);
   background: rgba(10, 25, 41, 0.7);
   transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(229, 37, 33, 0.2);
 }
 
 .contact-item {
@@ -1334,6 +1454,8 @@ img {
   text-shadow: 0 0 10px var(--glow-color);
   filter: drop-shadow(0 0 5px var(--glow-color));
   transition: var(--transition);
+  color: var(--ironman-red);
+  text-shadow: 0 0 10px var(--ironman-glow);
 }
 
 .contact-details h4 {
@@ -1354,6 +1476,8 @@ img {
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
   margin-top: 5rem;
+  border: 1px solid rgba(229, 37, 33, 0.2);
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.1);
 }
 
 .map-container {
@@ -1362,10 +1486,11 @@ img {
   box-shadow: var(--card-shadow);
   border: 1px solid var(--glass-border);
   transition: var(--transition);
+  border: 1px solid rgba(229, 37, 33, 0.3);
 }
 
 .map-container:hover {
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 30px rgba(229, 37, 33, 0.3);
 }
 
 /* Animations */
