@@ -1,5 +1,5 @@
 import pytest
-from flask import url_for
+from flask import Flask
 from app import app, read_html_file
 import os
 
@@ -73,38 +73,20 @@ def test_api_health_structure(client):
 def test_read_html_file_success():
     """Test de la fonction read_html_file avec succès"""
     result = read_html_file('index.html')
-    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
-    # Si c'est un tuple, c'est une erreur
-    if isinstance(result, tuple):
-        assert len(result) == 2
-        assert result[1] == 200
-    else:
-        # C'est un Response Flask
-        assert hasattr(result, 'status_code')
-        assert result.status_code == 200
+    # Vérifier que le résultat est bien une réponse Flask
+    assert hasattr(result, 'status_code')
+    assert result.status_code == 200
 
 def test_read_html_file_not_found():
     """Test de la fonction read_html_file avec fichier non trouvé"""
     result = read_html_file('nonexistent.html')
-    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
-    # Si c'est un tuple, c'est une erreur
-    if isinstance(result, tuple):
-        assert len(result) == 2
-        assert result[1] == 404
-    else:
-        # C'est un Response Flask
-        assert hasattr(result, 'status_code')
-        assert result.status_code == 404
+    # Vérifier que le résultat est bien une réponse Flask
+    assert hasattr(result, 'status_code')
+    assert result.status_code == 404
 
 def test_read_html_file_security():
     """Test de la fonction read_html_file avec tentative de sécurité"""
     result = read_html_file('../secret.txt')
-    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
-    # Si c'est un tuple, c'est une erreur
-    if isinstance(result, tuple):
-        assert len(result) == 2
-        assert result[1] == 403
-    else:
-        # C'est un Response Flask
-        assert hasattr(result, 'status_code')
-        assert result.status_code == 403
+    # Vérifier que le résultat est bien une réponse Flask
+    assert hasattr(result, 'status_code')
+    assert result.status_code == 403

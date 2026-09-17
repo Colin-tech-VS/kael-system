@@ -31,7 +31,7 @@ def read_html_file(filename):
         
         if not abs_path.startswith(abs_static):
             logger.warning(f"Tentative d'accès à un fichier en dehors du dossier statique: {filename}")
-            return "Accès non autorisé", 403
+            return Response("Accès non autorisé", status=403)
             
         if os.path.exists(file_path) and os.path.isfile(file_path):
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -39,11 +39,11 @@ def read_html_file(filename):
             return Response(content, mimetype='text/html')
         else:
             logger.warning(f"Fichier non trouvé: {filename}")
-            return "Fichier non trouvé", 404
+            return Response("Fichier non trouvé", status=404)
     except Exception as e:
         logger.error(f"Erreur lors de la lecture du fichier {filename}: {str(e)}")
         logger.debug(traceback.format_exc())
-        return "Erreur interne du serveur", 500
+        return Response("Erreur interne du serveur", status=500)
 
 @app.route('/')
 def home():
@@ -53,7 +53,7 @@ def home():
     except Exception as e:
         logger.error(f"Erreur lors du rendu de la page d'accueil: {str(e)}")
         logger.debug(traceback.format_exc())
-        return "Erreur interne du serveur", 500
+        return Response("Erreur interne du serveur", status=500)
 
 @app.route('/<path:filename>')
 def serve_static(filename):
@@ -69,7 +69,7 @@ def serve_static(filename):
             safe_path = os.path.normpath(filename)
             if safe_path.startswith('..') or safe_path.startswith('/'):
                 logger.warning(f"Tentative d'accès à un fichier avec chemin non sécurisé: {filename}")
-                return "Accès non autorisé", 403
+                return Response("Accès non autorisé", status=403)
                 
             # Vérifier que le fichier existe bien dans le dossier statique
             full_path = os.path.join(STATIC_FOLDER, safe_path)
@@ -78,17 +78,17 @@ def serve_static(filename):
             
             if not abs_full_path.startswith(abs_static):
                 logger.warning(f"Tentative d'accès à un fichier en dehors du dossier statique: {filename}")
-                return "Accès non autorisé", 403
+                return Response("Accès non autorisé", status=403)
                 
             if os.path.exists(full_path) and os.path.isfile(full_path):
                 return send_from_directory(STATIC_FOLDER, safe_path)
             else:
                 logger.warning(f"Fichier non trouvé: {filename}")
-                return "Fichier non trouvé", 404
+                return Response("Fichier non trouvé", status=404)
     except Exception as e:
         logger.error(f"Erreur lors du rendu du fichier {filename}: {str(e)}")
         logger.debug(traceback.format_exc())
-        return "Erreur interne du serveur", 500
+        return Response("Erreur interne du serveur", status=500)
 
 @app.route('/health')
 def health():
@@ -139,15 +139,15 @@ def api_health():
 @app.errorhandler(404)
 def not_found(error):
     logger.warning(f"404 - Ressource non trouvée: {request.path}")
-    return "Page non trouvée", 404
+    return Response("Page non trouvée", status=404)
 
 @app.errorhandler(500)
 def internal_error(error):
     logger.error(f"Erreur interne du serveur: {str(error)}")
     logger.debug(traceback.format_exc())
-    return "Erreur interne du serveur", 500
+    return Response("Erreur interne du serveur", status=500)
 
-# Ajout de la gestion de la requête pour le handler d'erreur 404
+# Ajout de l'import nécessaire pour le handler d'erreur 404
 from flask import request
 
 if __name__ == '__main__':
