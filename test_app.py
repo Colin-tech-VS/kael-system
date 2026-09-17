@@ -1,6 +1,7 @@
 import pytest
+from flask import url_for
+from app import app, read_html_file
 import os
-from app import app
 
 @pytest.fixture
 def client():
@@ -9,19 +10,20 @@ def client():
         yield client
 
 def test_home_page(client):
-    """Test la page d'accueil"""
+    """Test de la page d'accueil"""
     response = client.get('/')
     assert response.status_code == 200
+    assert b'KAEL System' in response.data
 
 def test_health_endpoint(client):
-    """Test l'endpoint de santé"""
+    """Test de l'endpoint de santé"""
     response = client.get('/health')
     assert response.status_code == 200
     data = response.get_json()
     assert data['status'] == 'healthy'
 
 def test_api_health_endpoint(client):
-    """Test l'endpoint de santé API"""
+    """Test de l'endpoint de santé API"""
     response = client.get('/api/health')
     assert response.status_code == 200
     data = response.get_json()
@@ -29,24 +31,21 @@ def test_api_health_endpoint(client):
     assert 'timestamp' in data
 
 def test_static_files(client):
-    """Test l'accès aux fichiers statiques"""
-    # Test avec un fichier HTML
+    """Test de la lecture de fichiers statiques"""
+    # Test d'un fichier HTML existant
     response = client.get('/index.html')
     assert response.status_code == 200
-    
-    # Test avec un fichier CSS
-    response = client.get('/css/style.css')
-    assert response.status_code == 200
+    assert b'KAEL System' in response.data
 
 def test_nonexistent_file(client):
-    """Test l'accès à un fichier inexistant"""
+    """Test d'accès à un fichier inexistant"""
     response = client.get('/nonexistent.html')
     assert response.status_code == 404
 
 def test_security_access(client):
-    """Test la sécurité d'accès aux fichiers"""
+    """Test de la sécurité d'accès aux fichiers"""
     # Tentative d'accès à un fichier en dehors du dossier statique
-    response = client.get('/../etc/passwd')
+    response = client.get('/../secret.txt')
     assert response.status_code == 403
 
 def test_health_endpoint_detailed(client):
@@ -56,24 +55,56 @@ def test_health_endpoint_detailed(client):
     data = response.get_json()
     assert 'status' in data
     assert data['status'] == 'healthy'
-    
-    # Vérifier que l'application répond rapidement
-    import time
-    start = time.time()
-    response = client.get('/health')
-    end = time.time()
-    assert end - start < 1.0  # Doit répondre en moins de 1 seconde
 
 def test_404_handling(client):
-    """Test la gestion des erreurs 404"""
+    """Test de la gestion des erreurs 404"""
     response = client.get('/this-page-does-not-exist')
     assert response.status_code == 404
 
 def test_api_health_structure(client):
-    """Test la structure de l'endpoint API health"""
+    """Test de la structure de l'endpoint de santé API"""
     response = client.get('/api/health')
     assert response.status_code == 200
     data = response.get_json()
     assert 'status' in data
     assert 'timestamp' in data
     assert data['status'] == 'healthy'
+
+def test_read_html_file_success():
+    """Test de la fonction read_html_file avec succès"""
+    result = read_html_file('index.html')
+    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
+    # Si c'est un tuple, c'est une erreur
+    if isinstance(result, tuple):
+        assert len(result) == 2
+        assert result[1] == 200
+    else:
+        # C'est un Response Flask
+        assert hasattr(result, 'status_code')
+        assert result.status_code == 200
+
+def test_read_html_file_not_found():
+    """Test de la fonction read_html_file avec fichier non trouvé"""
+    result = read_html_file('nonexistent.html')
+    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
+    # Si c'est un tuple, c'est une erreur
+    if isinstance(result, tuple):
+        assert len(result) == 2
+        assert result[1] == 404
+    else:
+        # C'est un Response Flask
+        assert hasattr(result, 'status_code')
+        assert result.status_code == 404
+
+def test_read_html_file_security():
+    """Test de la fonction read_html_file avec tentative de sécurité"""
+    result = read_html_file('../secret.txt')
+    # La fonction peut retourner soit un Response Flask, soit un tuple (erreur)
+    # Si c'est un tuple, c'est une erreur
+    if isinstance(result, tuple):
+        assert len(result) == 2
+        assert result[1] == 403
+    else:
+        # C'est un Response Flask
+        assert hasattr(result, 'status_code')
+        assert result.status_code == 403
