@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - KAEL System</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jarvis-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -32,102 +32,165 @@
     </header>
 
     <!-- Documentation Hero -->
-    <section class="documentation-hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Documentation</h1>
-                <p>Toutes les ressources techniques et tutoriels pour utiliser Kael System</p>
+                <p>Guide complet pour utiliser Kael System</p>
             </div>
         </div>
     </section>
 
     <!-- Documentation Content -->
-    <section class="documentation-section">
+    <section class="documentation-content">
         <div class="container">
-            <div class="section-header">
-                <h2>Centre de documentation</h2>
-                <p>Accédez à la documentation complète de Kael System</p>
-            </div>
-            
-            <div class="docs-categories">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Guide de démarrage</h3>
-                    <p>Commencez rapidement avec Kael System</p>
-                    <a href="#" class="btn btn-secondary">Voir le guide</a>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>API Documentation</h3>
-                    <p>Documentation complète de l'API REST</p>
-                    <a href="#" class="btn btn-secondary">Accéder à l'API</a>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Tutoriels Vidéo</h3>
-                    <p>Apprenez avec nos tutoriels interactifs</p>
-                    <a href="#" class="btn btn-secondary">Voir les tutoriels</a>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>FAQ & Support</h3>
-                    <p>Questions fréquentes et assistance</p>
-                    <a href="#" class="btn btn-secondary">Accéder au support</a>
+            <div class="docs-sidebar">
+                <div class="sidebar-menu">
+                    <h3>Contenus de la documentation</h3>
+                    <ul>
+                        <li><a href="#getting-started">Premiers pas</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                        <li><a href="#api-reference">Référence API</a></li>
+                        <li><a href="#integrations">Intégrations</a></li>
+                        <li><a href="#troubleshooting">Dépannage</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="docs-search">
-                <h3>Rechercher dans la documentation</h3>
-                <div class="search-box">
-                    <input type="text" placeholder="Rechercher un article...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick References -->
-    <section class="quick-references">
-        <div class="container">
-            <div class="section-header">
-                <h2>Références rapides</h2>
-                <p>Accès rapide aux informations importantes</p>
-            </div>
-            
-            <div class="references-grid">
-                <div class="reference-item">
-                    <h3>Configuration initiale</h3>
-                    <p>Guide complet pour configurer votre premier projet</p>
-                    <a href="#" class="btn btn-link">Voir le guide</a>
+            <div class="docs-main">
+                <div class="doc-section" id="getting-started">
+                    <h2>Premiers pas</h2>
+                    <p>Bienvenue dans la documentation de Kael System ! Cette section vous guide à travers les bases de l'utilisation de notre plateforme.</p>
+                    
+                    <h3>Prérequis</h3>
+                    <ul>
+                        <li>Un navigateur web moderne</li>
+                        <li>Un compte Kael System (gratuit)</li>
+                        <li>Accès à Internet</li>
+                    </ul>
+                    
+                    <h3>Création d'un compte</h3>
+                    <p>Pour commencer à utiliser Kael System :</p>
+                    <ol>
+                        <li>Accédez à notre page d'inscription</li>
+                        <li>Remplissez le formulaire avec vos informations</li>
+                        <li>Confirmez votre adresse email</li>
+                        <li>Connectez-vous à votre compte</li>
+                    </ol>
                 </div>
                 
-                <div class="reference-item">
-                    <h3>Intégrations</h3>
-                    <p>Guide d'intégration avec les plateformes principales</p>
-                    <a href="#" class="btn btn-link">Voir les intégrations</a>
+                <div class="doc-section" id="installation">
+                    <h2>Installation</h2>
+                    <p>Kael System peut être utilisé directement depuis votre navigateur sans installation nécessaire. Pour une utilisation avancée, vous pouvez également déployer une instance locale.</p>
+                    
+                    <h3>Version hébergée</h3>
+                    <p>La version hébergée est la plus simple à utiliser :</p>
+                    <ul>
+                        <li>Accédez à notre site web</li>
+                        <li>Connectez-vous avec vos identifiants</li>
+                        <li>Commencez à utiliser les fonctionnalités</li>
+                    </ul>
+                    
+                    <h3>Installation locale</h3>
+                    <p>Pour une installation locale :</p>
+                    <pre><code>git clone https://github.com/votre-repo/kael-system.git
+cd kael-system
+pip install -r requirements.txt
+python app.py</code></pre>
                 </div>
                 
-                <div class="reference-item">
-                    <h3>Automatisation</h3>
-                    <p>Comment créer des workflows automatisés</p>
-                    <a href="#" class="btn btn-link">Voir les exemples</a>
+                <div class="doc-section" id="configuration">
+                    <h2>Configuration</h2>
+                    <p>Configurez votre environnement Kael System selon vos besoins spécifiques.</p>
+                    
+                    <h3>Paramètres généraux</h3>
+                    <p>Accédez à la section "Paramètres" dans votre interface pour :</p>
+                    <ul>
+                        <li>Configurer les notifications</li>
+                        <li>Personnaliser l'apparence</li>
+                        <li>Gérer les utilisateurs</li>
+                        <li>Configurer les alertes</li>
+                    </ul>
+                    
+                    <h3>Variables d'environnement</h3>
+                    <p>Certaines configurations peuvent être définies via des variables d'environnement :</p>
+                    <ul>
+                        <li><strong>PORT</strong>: Port d'écoute du serveur (par défaut: 8000)</li>
+                        <li><strong>DEBUG</strong>: Mode debug (true/false)</li>
+                        <li><strong>SECRET_KEY</strong>: Clé secrète pour les sessions</li>
+                    </ul>
                 </div>
                 
-                <div class="reference-item">
-                    <h3>Surveillance</h3>
-                    <p>Configurer les alertes et les notifications</p>
-                    <a href="#" class="btn btn-link">Voir les options</a>
+                <div class="doc-section" id="api-reference">
+                    <h2>Référence API</h2>
+                    <p>Documentation complète des endpoints disponibles :</p>
+                    
+                    <h3>Endpoints principaux</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Méthode</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/health</td>
+                                <td>Vérification de santé du service</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/health</td>
+                                <td>Vérification de santé de l'API</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/sites</td>
+                                <td>Liste des sites configurés</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="doc-section" id="integrations">
+                    <h2>Intégrations</h2>
+                    <p>Documentation des intégrations disponibles avec Kael System.</p>
+                    
+                    <h3>Intégrations tierces</h3>
+                    <p>Nous offrons des intégrations avec les plateformes les plus populaires :</p>
+                    <ul>
+                        <li>GitHub</li>
+                        <li>GitLab</li>
+                        <li>Jira</li>
+                        <li>Slack</li>
+                        <li>Google Workspace</li>
+                        <li>AWS</li>
+                    </ul>
+                    
+                    <h3>API personnalisée</h3>
+                    <p>Notre API RESTful permet d'intégrer Kael System avec vos outils personnalisés.</p>
+                </div>
+                
+                <div class="doc-section" id="troubleshooting">
+                    <h2>Dépannage</h2>
+                    <p>Solutions aux problèmes courants rencontrés avec Kael System.</p>
+                    
+                    <h3>Problèmes de connexion</h3>
+                    <ul>
+                        <li>Vérifiez votre connexion internet</li>
+                        <li>Assurez-vous que le port requis n'est pas bloqué</li>
+                        <li>Essayez de vider le cache de votre navigateur</li>
+                    </ul>
+                    
+                    <h3>Problèmes de performance</h3>
+                    <ul>
+                        <li>Redémarrez le service</li>
+                        <li>Vérifiez l'utilisation des ressources système</li>
+                        <li>Contactez notre support technique</li>
+                    </ul>
                 </div>
             </div>
         </div>

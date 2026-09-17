@@ -1,104 +1,106 @@
-// Mobile Menu Toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navbar = document.querySelector('.navbar');
+// Script principal pour le site Kael System
 
-if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
+// Fonction pour gérer le menu mobile
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    
+    if (mobileToggle && navbar) {
+        mobileToggle.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+        });
+    }
 }
 
-// Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-            });
+// Fonction pour gérer le scroll du header
+function handleHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            header.style.background = '#fff';
         }
     });
-});
-
-// Header Scroll Effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        header.style.background = 'rgba(20, 20, 20, 0.95)';
-        header.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.2)';
-    } else {
-        header.classList.remove('scrolled');
-        header.style.background = 'rgba(20, 20, 255, 0.9)';
-        header.style.boxShadow = 'none';
-    }
-});
-
-// Form Submission Handling
-const contactForm = document.querySelector('form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // In a real application, this would submit the form data
-        alert('Merci pour votre message ! Nous vous répondrons bientôt.');
-        contactForm.reset();
-    });
 }
 
-// Animation on Scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.feature-card, .advantage-item, .testimonial-card, .integration-card, .category-card');
+// Fonction pour gérer les formulaires
+function initForms() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ici on pourrait ajouter la logique d'envoi du formulaire
+            alert('Merci pour votre message ! Nous vous répondrons bientôt.');
+            contactForm.reset();
+        });
+    }
+}
+
+// Fonction pour gérer les animations au scroll
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.feature-card, .advantage-item, .testimonial-card, .platform-card');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
     
     elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-            element.style.opacity = 1;
-            element.style.transform = 'translateY(0)';
-        }
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(element);
     });
-};
+}
 
-// Set initial state for animated elements
-document.querySelectorAll('.feature-card, .advantage-item, .testimonial-card, .integration-card, .category-card').forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-});
-
-// Initial check
-animateOnScroll();
-
-// Listen for scroll events
-window.addEventListener('scroll', animateOnScroll);
-
-// Feature Detail Toggle (for features page)
-const featureDetails = document.querySelectorAll('.feature-detail');
-featureDetails.forEach(detail => {
-    detail.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
-            detail.classList.toggle('expanded');
-        }
+// Fonction pour gérer le smooth scrolling
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
+}
 
-// Initialize tooltips or other interactive elements if needed
-document.addEventListener('DOMContentLoaded', () => {
-    // Add any initialization code here
-    console.log('Kael System website loaded successfully');
-    
-    // Add animation to hero section
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.style.opacity = 0;
-        heroContent.style.transform = 'translateY(30px)';
-        setTimeout(() => {
-            heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroContent.style.opacity = 1;
-            heroContent.style.transform = 'translateY(0)';
-        }, 300);
-    }
+// Fonction pour initialiser tous les composants
+function initAll() {
+    initMobileMenu();
+    handleHeaderScroll();
+    initForms();
+    initScrollAnimations();
+    initSmoothScrolling();
+}
+
+// Initialisation lorsque le DOM est chargé
+document.addEventListener('DOMContentLoaded', initAll);
+
+// Initialisation lorsque la page est complètement chargée
+window.addEventListener('load', function() {
+    // Peut être utilisé pour des initialisations supplémentaires
 });
