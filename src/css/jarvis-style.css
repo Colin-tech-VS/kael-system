@@ -1,4 +1,4 @@
-/* Style Jarvis-inspired pour Kael System - Design SaaS moderne */
+/* Style moderne et sobre pour Kael System - Design technologique spatial */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background: linear-gradient(135deg, #0a0a14 0%, #121220 100%);
     color: #e0e0e0;
     line-height: 1.6;
     overflow-x: hidden;
@@ -23,9 +23,9 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 15% 25%, rgba(0, 255, 255, 0.05) 0%, transparent 30%),
-        radial-gradient(circle at 85% 75%, rgba(255, 0, 255, 0.05) 0%, transparent 30%),
-        linear-gradient(135deg, rgba(0, 255, 255, 0.02) 0%, transparent 50%);
+        radial-gradient(circle at 15% 25%, rgba(30, 30, 60, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(20, 20, 40, 0.1) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(20, 20, 40, 0.05) 0%, transparent 50%);
     z-index: -1;
     opacity: 0.7;
 }
@@ -36,23 +36,23 @@ body::before {
     padding: 20px;
 }
 
-/* Header avec effet de style Jarvis */
+/* Header avec design sobre et moderne */
 .header {
-    background: rgba(10, 10, 20, 0.95);
+    background: rgba(15, 15, 25, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(100, 100, 150, 0.2);
     padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .header.scrolled {
     padding: 10px 0;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 .header .container {
@@ -69,15 +69,14 @@ body::before {
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
-    animation: pulse 2s infinite;
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 5px rgba(100, 150, 255, 0.3));
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .navbar ul {
@@ -87,28 +86,28 @@ body::before {
 }
 
 .navbar ul li a {
-    color: #e0e0e0;
+    color: #d0d0e0;
     text-decoration: none;
     font-weight: 500;
     padding: 8px 16px;
-    border-radius: 20px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     border: 1px solid transparent;
     text-transform: uppercase;
     font-size: 0.9rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .navbar ul li a:hover,
 .navbar ul li a.active {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    transform: translateY(-2px);
+    color: #64b5f6;
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.4);
+    background: rgba(100, 181, 246, 0.05);
+    box-shadow: 0 0 12px rgba(100, 181, 246, 0.2);
+    border: 1px solid rgba(100, 181, 246, 0.2);
+    transform: translateY(-1px);
 }
 
 .navbar ul li a::after {
@@ -117,10 +116,10 @@ body::before {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: #00ffff;
+    height: 1px;
+    background: #64b5f6;
     transition: width 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 3px rgba(100, 181, 246, 0.3);
 }
 
 .navbar ul li a:hover::after,
@@ -132,39 +131,38 @@ body::before {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #00ffff;
-    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+    color: #64b5f6;
+    filter: drop-shadow(0 0 3px rgba(100, 181, 246, 0.3));
     transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle:hover {
     transform: rotate(90deg);
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+    filter: drop-shadow(0 0 8px rgba(100, 181, 246, 0.6));
 }
 
-/* Hero section avec effet de style Jarvis */
+/* Hero section avec design sobre */
 .hero {
     padding: 180px 0 100px;
     background: 
-        linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
-        linear-gradient(45deg, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
-        #0a0a0a;
+        linear-gradient(135deg, rgba(20, 20, 40, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(20, 20, 40, 0.1) 0%, transparent 50%),
+        #0a0a14;
     color: #e0e0e0;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(100, 100, 150, 0.1);
     margin-top: 70px;
     animation: fadeIn 1s ease-out;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #00ffff;
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    animation: pulse 2s infinite;
-    letter-spacing: -1px;
+    color: #64b5f6;
+    text-shadow: 0 0 15px rgba(100, 181, 246, 0.3);
+    letter-spacing: -0.5px;
     position: relative;
     display: inline-block;
 }
@@ -172,25 +170,25 @@ body::before {
 .hero-content h1::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -3px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
-    border-radius: 2px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #64b5f6, transparent);
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(100, 181, 246, 0.3);
 }
 
 .hero-content p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 40px;
     opacity: 0.9;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.2);
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -202,27 +200,28 @@ body::before {
     flex-wrap: wrap;
 }
 
-/* Boutons avec effet de style Jarvis */
+/* Boutons avec design sobre */
 .btn {
     display: inline-block;
-    padding: 15px 30px;
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    color: #000;
+    padding: 14px 28px;
+    background: linear-gradient(45deg, #1a237e, #283593);
+    color: #e0e0e0;
     text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
+    border-radius: 25px;
+    font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     border: none;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 12px rgba(26, 35, 126, 0.3);
     margin: 10px;
     font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     animation: fadeInUp 0.6s ease forwards;
     transform: translateY(20px);
     opacity: 0;
+    border: 1px solid rgba(100, 181, 246, 0.2);
 }
 
 .btn:nth-child(1) {
@@ -234,8 +233,8 @@ body::before {
 }
 
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(26, 35, 126, 0.4);
     z-index: 1;
 }
 
@@ -250,18 +249,18 @@ body::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: 0.5s;
 }
 
-/* Sections avec effet de style Jarvis */
+/* Sections avec design sobre */
 section {
     margin-bottom: 60px;
-    background: rgba(30, 30, 40, 0.7);
-    border-radius: 15px;
+    background: rgba(25, 25, 40, 0.6);
+    border-radius: 12px;
     padding: 40px;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(100, 100, 150, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
     animation: fadeInUp 0.8s ease-out;
     position: relative;
@@ -274,17 +273,17 @@ section::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+    height: 2px;
+    background: linear-gradient(90deg, #64b5f6, transparent);
     animation: gradient-move 3s linear infinite;
 }
 
 section h2 {
-    color: #00ffff;
+    color: #64b5f6;
     margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 12px;
     text-align: center;
 }
 
@@ -294,10 +293,10 @@ section h2::after {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, transparent);
-    border-radius: 2px;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #64b5f6, transparent);
+    border-radius: 1px;
 }
 
 .section-header {
@@ -306,27 +305,27 @@ section h2::after {
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
 .section-header p {
-    font-size: 1.2rem;
-    color: #a0a0a0;
+    font-size: 1.1rem;
+    color: #a0a0c0;
     max-width: 700px;
     margin: 0 auto;
 }
 
-/* Feature cards avec effet de style Jarvis */
+/* Feature cards avec design sobre */
 .feature-card {
-    background: rgba(20, 20, 30, 0.8);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 15px;
+    background: rgba(20, 20, 35, 0.7);
+    border: 1px solid rgba(100, 100, 150, 0.15);
+    border-radius: 12px;
     padding: 30px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     animation: fadeInUp 0.6s ease-out;
     transform: translateY(20px);
     opacity: 0;
@@ -338,10 +337,10 @@ section h2::after {
 .feature-card:nth-child(4) { animation-delay: 0.4s; }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 255, 255, 0.3);
-    border-color: #00ffff;
-    background: rgba(25, 25, 40, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: rgba(100, 181, 246, 0.3);
+    background: rgba(25, 25, 40, 0.8);
 }
 
 .feature-card::before {
@@ -350,8 +349,8 @@ section h2::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    height: 2px;
+    background: linear-gradient(90deg, #64b5f6, transparent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s ease;
@@ -362,84 +361,83 @@ section h2::after {
 }
 
 .feature-icon {
-    font-size: 3rem;
-    color: #00ffff;
-    margin-bottom: 25px;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
-    animation: pulse 2s infinite;
+    font-size: 2.5rem;
+    color: #64b5f6;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+    filter: drop-shadow(0 0 5px rgba(100, 181, 246, 0.2));
     transition: transform 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .feature-card h3 {
-    color: #00ffff;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    color: #64b5f6;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.2);
     transition: all 0.3s ease;
 }
 
 .feature-card:hover h3 {
-    color: #ff00ff;
-    text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    color: #bbdefb;
+    text-shadow: 0 0 10px rgba(187, 222, 251, 0.3);
 }
 
 .feature-card p {
-    color: #d0d0d0;
+    color: #c0c0e0;
     line-height: 1.7;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-size: 1rem;
 }
 
 /* Grid layouts */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 40px;
 }
 
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 40px;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 40px;
 }
 
 /* Testimonial card */
 .testimonial-card {
-    background: rgba(20, 20, 30, 0.8);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 15px;
+    background: rgba(20, 20, 35, 0.7);
+    border: 1px solid rgba(100, 100, 150, 0.15);
+    border-radius: 12px;
     padding: 30px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     animation: fadeInUp 0.6s ease-out;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-    border-color: #00ffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(100, 181, 246, 0.2);
 }
 
 .testimonial-content {
     margin-bottom: 20px;
     font-style: italic;
-    color: #d0d0d0;
+    color: #c0c0e0;
     position: relative;
     padding-left: 20px;
 }
@@ -449,8 +447,8 @@ section h2::after {
     position: absolute;
     left: 0;
     top: -10px;
-    font-size: 4rem;
-    color: rgba(0, 255, 255, 0.2);
+    font-size: 3rem;
+    color: rgba(100, 181, 246, 0.1);
     font-family: serif;
 }
 
@@ -461,21 +459,22 @@ section h2::after {
 }
 
 .author-info h4 {
-    color: #00ffff;
+    color: #64b5f6;
     margin-bottom: 5px;
+    font-size: 1.1rem;
 }
 
 .author-info p {
-    color: #a0a0a0;
+    color: #a0a0c0;
     font-size: 0.9rem;
 }
 
-/* Footer avec effet de style Jarvis */
+/* Footer avec design sobre */
 .footer {
-    background: rgba(10, 10, 20, 0.95);
+    background: rgba(15, 15, 25, 0.95);
     color: #e0e0e0;
     padding: 60px 0 30px;
-    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    border-top: 1px solid rgba(100, 100, 150, 0.2);
     margin-top: 50px;
     position: relative;
 }
@@ -486,15 +485,15 @@ section h2::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+    height: 2px;
+    background: linear-gradient(90deg, #64b5f6, transparent);
     animation: gradient-move 3s linear infinite;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+    gap: 35px;
     margin-bottom: 40px;
 }
 
@@ -506,10 +505,9 @@ section h2::after {
 }
 
 .footer-logo img {
-    width: 70px;
-    height: 70px;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
-    animation: pulse 2s infinite;
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 0 5px rgba(100, 181, 246, 0.3));
 }
 
 .footer-links {
@@ -519,12 +517,12 @@ section h2::after {
 }
 
 .footer-column h4 {
-    color: #00ffff;
-    margin-bottom: 25px;
+    color: #64b5f6;
+    margin-bottom: 20px;
     position: relative;
-    padding-bottom: 12px;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    font-size: 1.3rem;
+    padding-bottom: 10px;
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.3);
+    font-size: 1.2rem;
 }
 
 .footer-column h4::after {
@@ -532,31 +530,31 @@ section h2::after {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
-    height: 2px;
-    background: #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    border-radius: 2px;
+    width: 50px;
+    height: 1px;
+    background: #64b5f6;
+    box-shadow: 0 0 5px rgba(100, 181, 246, 0.3);
+    border-radius: 1px;
 }
 
 .footer-column ul li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .footer-column ul li a {
-    color: #d0d0d0;
+    color: #c0c0e0;
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
-    padding-left: 25px;
+    padding-left: 20px;
     display: block;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .footer-column ul li a:hover {
-    color: #00ffff;
-    padding-left: 30px;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    color: #64b5f6;
+    padding-left: 25px;
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.3);
 }
 
 .footer-column ul li a::before {
@@ -564,30 +562,24 @@ section h2::after {
     position: absolute;
     left: 0;
     top: 0;
-    color: #00ffff;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    color: #64b5f6;
+    text-shadow: 0 0 3px rgba(100, 181, 246, 0.3);
     transition: all 0.3s ease;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
-    border-top: 1px solid rgba(0, 255, 255, 0.1);
-    color: #a0a0a0;
-    font-size: 1rem;
+    border-top: 1px solid rgba(100, 100, 150, 0.1);
+    color: #a0a0c0;
+    font-size: 0.9rem;
 }
 
 /* Animations spéciales */
-@keyframes pulse {
-    0% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 0.7; transform: scale(1); }
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
     }
     to {
         opacity: 1;
@@ -611,30 +603,30 @@ section h2::after {
 
 /* Scrollbar personnalisée */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a2e;
+    background: #1a1a2a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(#00ffff, #ff00ff);
-    border-radius: 5px;
+    background: linear-gradient(#1a237e, #283593);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00ffff;
+    background: #1a237e;
 }
 
 /* Responsive design */
 @media (max-width: 992px) {
     .hero-content h1 {
-        font-size: 3.2rem;
+        font-size: 3rem;
     }
     
     .hero-content p {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .cta-buttons {
@@ -682,7 +674,7 @@ section h2::after {
     }
     
     .hero-content p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .mobile-menu-toggle {
@@ -714,7 +706,7 @@ section h2::after {
     }
     
     .footer-column h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .footer-column ul li a {
@@ -751,11 +743,11 @@ section h2::after {
     }
     
     .footer-column h4 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
     
     .footer-bottom {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -766,7 +758,7 @@ section h2::after {
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    50% { transform: translateY(-3px); }
     100% { transform: translateY(0px); }
 }
 
@@ -779,7 +771,7 @@ section {
 @keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -789,8 +781,8 @@ section {
 
 /* Effet de hover sur les liens du footer */
 .footer-column ul li a:hover::before {
-    color: #ff00ff;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    color: #bbdefb;
+    text-shadow: 0 0 8px rgba(187, 222, 251, 0.4);
 }
 
 /* Effet de survol sur les boutons */
@@ -800,6 +792,6 @@ section {
 
 @keyframes pulseBtn {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.03); }
     100% { transform: scale(1); }
 }

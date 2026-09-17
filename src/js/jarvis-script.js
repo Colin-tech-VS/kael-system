@@ -1,4 +1,4 @@
-// Script JavaScript pour le design Jarvis-inspired
+// Script JavaScript pour le design moderne et sobre
 document.addEventListener('DOMContentLoaded', function() {
     // Gestion du menu mobile
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
+            this.style.transform = 'translateY(-5px)';
         });
         
         card.addEventListener('mouseleave', function() {
