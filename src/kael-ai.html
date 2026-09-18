@@ -7,6 +7,276 @@
     <link rel="stylesheet" href="css/saas-pro.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Améliorations du design pour un style plus moderne */
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(15, 23, 42, 0.9) 0%, transparent 50%),
+                #0f172a;
+            padding: 180px 0 120px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            color: #e0f2fe;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            letter-spacing: -0.5px;
+            font-weight: 800;
+        }
+        
+        .hero-content p {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            font-weight: 300;
+        }
+        
+        .btn {
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            margin: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+        
+        .feature-card {
+            padding: 35px;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .advantage-item {
+            padding: 40px 30px;
+        }
+        
+        .advantage-icon {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        .advantage-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        
+        .advantage-item p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .about-content {
+            gap: 70px;
+        }
+        
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .about-image img {
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer {
+            background: rgba(15, 23, 42, 0.98);
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column ul li a {
+            font-size: 1rem;
+            padding-left: 30px;
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        
+        /* Section spécifique pour les inputs */
+        .input-design-section {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 80px 0;
+            margin: 50px 0;
+        }
+        
+        .input-example-container {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .input-example-container h3 {
+            color: #e0f2fe;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .input-field-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-field-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .input-field-group input,
+        .input-field-group textarea,
+        .input-field-group select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field-group input:focus,
+        .input-field-group textarea:focus,
+        .input-field-group select:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+        
+        /* Animation pour les éléments */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.4rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+                margin: 10px;
+            }
+            
+            .section-header h2 {
+                font-size: 2.4rem;
+            }
+            
+            .feature-card {
+                padding: 30px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 160px 0 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .feature-card {
+                padding: 25px;
+            }
+            
+            .input-example-container {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -35,7 +305,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content fade-in-up">
                 <h1>KAEL AI</h1>
                 <p>L'Assistant Intelligence Artificielle de l'avenir</p>
                 <div class="cta-buttons">
@@ -49,11 +319,11 @@
     <!-- Presentation Section -->
     <section id="presentation" class="about-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-up">
                 <h2>Présentation de KAEL AI</h2>
                 <p>Le véritable cœur de l'expérience Kael</p>
             </div>
-            <div class="about-content">
+            <div class="about-content fade-in-up">
                 <div class="about-text">
                     <p>KAEL AI est le projet de base qui a inspiré l'ensemble de la plateforme Kael System. Il s'agit d'un assistant d'intelligence artificielle avancé conçu pour fournir des réponses intelligentes, des analyses approfondies et une assistance automatisée dans divers domaines.</p>
                     <p>Basé sur les dernières avancées en traitement du langage naturel et en apprentissage automatique, KAEL AI est capable d'interagir de manière conversationnelle, de comprendre les contextes complexes et de fournir des informations pertinentes en temps réel.</p>
@@ -62,7 +332,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/kael-ai-preview.png" alt="Aperçu de KAEL AI">
+                    <img src="assets/images/kael-ai-preview.png" alt="Aperçu de KAEL AI" class="fade-in-up">
                 </div>
             </div>
         </div>
@@ -71,12 +341,12 @@
     <!-- Features Section -->
     <section class="features-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-up">
                 <h2>Caractéristiques Techniques</h2>
                 <p>Les fonctionnalités avancées de KAEL AI</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
                         <i class="fas fa-brain"></i>
                     </div>
@@ -84,7 +354,7 @@
                     <p>Architecture basée sur des réseaux de neurones profonds pour une compréhension contextuelle avancée.</p>
                     <a href="#features" class="btn">En savoir plus</a>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
                         <i class="fas fa-comments"></i>
                     </div>
@@ -92,7 +362,7 @@
                     <p>Capacité à maintenir des conversations naturelles et contextuelles avec les utilisateurs.</p>
                     <a href="#features" class="btn">En savoir plus</a>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -100,7 +370,7 @@
                     <p>Exécution de tâches complexes sans intervention humaine grâce à des algorithmes avancés.</p>
                     <a href="#features" class="btn">En savoir plus</a>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -115,33 +385,33 @@
     <!-- Technical Details -->
     <section class="why-choose-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-up">
                 <h2>Détails Techniques</h2>
                 <p>Architecture et technologies utilisées</p>
             </div>
             <div class="advantages-grid">
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Langages & Frameworks</h3>
                     <p>Implémentation en Python avec TensorFlow, PyTorch et Transformers de Hugging Face.</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>Base de Données</h3>
                     <p>Stockage et traitement des données avec PostgreSQL et Redis pour la mise en cache.</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
                     <h3>Infrastructure Cloud</h3>
                     <p>Déploiement sur Kubernetes avec des microservices pour une scalabilité optimale.</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -155,11 +425,11 @@
     <!-- Repository Section -->
     <section class="features-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-up">
                 <h2>Le Repository GitHub</h2>
                 <p>Accédez au code source complet</p>
             </div>
-            <div class="about-content">
+            <div class="about-content fade-in-up">
                 <div class="about-text">
                     <p>KAEL AI est un projet open-source disponible sur GitHub. Vous pouvez explorer le code source, contribuer au développement, ou déployer votre propre instance.</p>
                     <p>Le repository contient :</p>
@@ -175,35 +445,35 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/github-repo.png" alt="Repository GitHub de KAEL AI">
+                    <img src="assets/images/github-repo.png" alt="Repository GitHub de KAEL AI" class="fade-in-up">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Input Design Section -->
-    <section class="why-choose-section">
+    <section class="why-choose-section input-design-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-up">
                 <h2>Design des Inputs</h2>
                 <p>Amélioration de l'expérience utilisateur</p>
             </div>
             <div class="advantages-grid">
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-keyboard"></i>
                     </div>
                     <h3>Inputs Modernes</h3>
                     <p>Design élégant et intuitif pour une meilleure expérience utilisateur.</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-magic"></i>
                     </div>
                     <h3>Interaction Améliorée</h3>
                     <p>Feedback visuel instantané et suggestions intelligentes.</p>
                 </div>
-                <div class="advantage-item">
+                <div class="advantage-item fade-in-up">
                     <div class="advantage-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -213,48 +483,20 @@
             </div>
             
             <!-- Example Input Fields -->
-            <div class="container" style="margin-top: 40px; padding: 30px; background: rgba(30, 41, 59, 0.6); border-radius: 15px; border: 1px solid rgba(148, 163, 184, 0.15);">
-                <h3 style="color: #e0f2fe; margin-bottom: 20px;">Exemple de champs d'entrée modernes</h3>
-                <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px;">
-                    <div>
-                        <label for="email-input" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Email</label>
-                        <input type="email" id="email-input" placeholder="Entrez votre email" style="
-                            width: 100%;
-                            padding: 14px 16px;
-                            background: rgba(15, 23, 42, 0.7);
-                            border: 1px solid rgba(148, 163, 184, 0.2);
-                            border-radius: 8px;
-                            color: #e2e8f0;
-                            font-size: 1rem;
-                            transition: all 0.3s ease;
-                        ">
+            <div class="input-example-container fade-in-up">
+                <h3>Exemple de champs d'entrée modernes</h3>
+                <div style="display: flex; flex-direction: column; gap: 25px; max-width: 600px;">
+                    <div class="input-field-group">
+                        <label for="email-input">Email</label>
+                        <input type="email" id="email-input" placeholder="Entrez votre email">
                     </div>
-                    <div>
-                        <label for="message-input" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Message</label>
-                        <textarea id="message-input" placeholder="Décrivez votre projet..." rows="4" style="
-                            width: 100%;
-                            padding: 14px 16px;
-                            background: rgba(15, 23, 42, 0.7);
-                            border: 1px solid rgba(148, 163, 184, 0.2);
-                            border-radius: 8px;
-                            color: #e2e8f0;
-                            font-size: 1rem;
-                            resize: vertical;
-                            transition: all 0.3s ease;
-                        "></textarea>
+                    <div class="input-field-group">
+                        <label for="message-input">Message</label>
+                        <textarea id="message-input" placeholder="Décrivez votre projet..." rows="4"></textarea>
                     </div>
-                    <div>
-                        <label for="select-input" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Catégorie</label>
-                        <select id="select-input" style="
-                            width: 100%;
-                            padding: 14px 16px;
-                            background: rgba(15, 23, 42, 0.7);
-                            border: 1px solid rgba(148, 163, 184, 0.2);
-                            border-radius: 8px;
-                            color: #e2e8f0;
-                            font-size: 1rem;
-                            transition: all 0.3s ease;
-                        ">
+                    <div class="input-field-group">
+                        <label for="select-input">Catégorie</label>
+                        <select id="select-input">
                             <option value="">Sélectionnez une catégorie</option>
                             <option value="tech">Technologie</option>
                             <option value="design">Design</option>
