@@ -13,7 +13,7 @@ def test_home_page(client):
     """Test de la page d'accueil"""
     response = client.get('/')
     assert response.status_code == 200
-    assert b'KAEL System' in response.data
+    assert b'KAEL - Assistant IA Professionnel' in response.data
 
 def test_health_endpoint(client):
     """Test de l'endpoint de santé"""
@@ -35,7 +35,7 @@ def test_static_files(client):
     # Test d'un fichier HTML existant
     response = client.get('/index.html')
     assert response.status_code == 200
-    assert b'KAEL System' in response.data
+    assert b'KAEL - Assistant IA Professionnel' in response.data
 
 def test_nonexistent_file(client):
     """Test d'accès à un fichier inexistant"""
