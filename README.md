@@ -1,17 +1,42 @@
-# Kael System
+# Kael - Assistant IA Professionnel
 
-Site vitrine qui présente KAEL
+Site vitrine pour présenter Kael, votre assistant IA professionnel.
 
-## Architecture du projet
+## Fonctionnalités
 
-Ce projet suit une architecture moderne avec une séparation claire entre le frontend et le backend :
+- Présentation professionnelle de Kael
+- Site responsive avec design moderne
+- Section présentation des fonctionnalités
+- Formulaire de contact
+- Témoignages clients
 
-### Structure du projet :
-- **backend/** : Code Python Flask pour le serveur
-- **frontend/** : Code React/Vite pour l'interface utilisateur
-- **src/** : Fichiers HTML/CSS/JS pour les pages statiques
-- **templates/** : Templates Jinja2 pour les pages dynamiques
-- **static/** : Fichiers statiques (images, CSS, JS)
+## Architecture
 
-## Application Flask
-Cette application est un serveur minimal basé sur Flask qui expose une route principale `/` retournant le message "KAEL System is up".
+Ce projet est une application Flask simple qui sert les fichiers statiques HTML, CSS et JavaScript.
+
+## Déploiement
+
+Pour déployer ce site :
+
+1. Installer les dépendances : `pip install -r requirements.txt`
+2. Démarrer l'application : `python app.py`
+
+Le site sera accessible sur le port 8000 par défaut.
+
+## Structure du projet
+
+- `index.html` : Page d'accueil principale
+- `assets/css/style.css` : Feuille de style principale
+- `assets/js/script.js` : Scripts JavaScript
+- `app.py` : Serveur Flask
+- `requirements.txt` : Dépendances Python
+- `Procfile` : Configuration de déploiement Scalingo/Heroku
+
+## Technologies utilisées
+
+- HTML5
+- CSS3 (avec Grid et Flexbox)
+- JavaScript ES6
+- Flask (Python)
+- Font Awesome pour les icônes
+- Google Fonts (Inter)

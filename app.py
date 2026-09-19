@@ -19,13 +19,13 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Configuration pour servir les fichiers statiques
-STATIC_FOLDER = 'src'
+STATIC_FOLDER = '.'
 
 def read_html_file(filename):
     """Lire un fichier HTML et le renvoyer"""
     try:
         file_path = os.path.join(STATIC_FOLDER, filename)
-        # Sécurité : empêcher l'accès à des fichiers en dehors du dossier statique
+        # Sécurité : empêcher l'accès à des fichiers en dehors du dossier courant
         abs_path = os.path.abspath(file_path)
         abs_static = os.path.abspath(STATIC_FOLDER)
         
@@ -65,13 +65,13 @@ def serve_static(filename):
             return read_html_file(filename)
         else:
             # Pour les autres types de fichiers, utiliser send_from_directory
-            # Vérification de sécurité : ne permettre que les fichiers dans le dossier statique
+            # Vérification de sécurité : ne permettre que les fichiers dans le dossier courant
             safe_path = os.path.normpath(filename)
             if safe_path.startswith('..') or safe_path.startswith('/'):
                 logger.warning(f"Tentative d'accès à un fichier avec chemin non sécurisé: {filename}")
                 return Response("Accès non autorisé", status=403)
                 
-            # Vérifier que le fichier existe bien dans le dossier statique
+            # Vérifier que le fichier existe bien dans le dossier courant
             full_path = os.path.join(STATIC_FOLDER, safe_path)
             abs_full_path = os.path.abspath(full_path)
             abs_static = os.path.abspath(STATIC_FOLDER)
