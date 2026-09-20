@@ -97,6 +97,15 @@ class TestKaelFiles(unittest.TestCase):
         self.assertIn('DOMContentLoaded', js_content)
         self.assertIn('addEventListener', js_content)
         self.assertIn('function initKaelAnimations', js_content)
+        
+    def test_app_py_exists(self):
+        """Vérifie que le fichier app.py existe"""
+        self.assertTrue(os.path.exists('app.py'))
+        
+    def test_requirements_exist(self):
+        """Vérifie que les fichiers de dépendances existent"""
+        self.assertTrue(os.path.exists('requirements.txt'))
+        self.assertTrue(os.path.exists('requirements-dev.txt'))
 
 if __name__ == '__main__':
     # Exécuter les tests

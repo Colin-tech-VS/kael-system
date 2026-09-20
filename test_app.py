@@ -90,3 +90,15 @@ def test_read_html_file_security():
     # Vérifier que le résultat est bien une réponse Flask
     assert hasattr(result, 'status_code')
     assert result.status_code == 403
+
+def test_dashboard_access(client):
+    """Test d'accès au tableau de bord"""
+    response = client.get('/dashboard')
+    assert response.status_code == 200
+    assert b'Tableau de Bord' in response.data
+
+def test_login_access(client):
+    """Test d'accès à la page de connexion"""
+    response = client.get('/login')
+    assert response.status_code == 200
+    assert b'Connexion' in response.data
