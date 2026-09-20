@@ -439,7 +439,7 @@ body::before {
 }
 
 .testimonial-content::before {
-    content: """;
+    content: """";
     position: absolute;
     left: 0;
     top: -10px;
