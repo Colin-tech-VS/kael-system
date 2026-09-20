@@ -55,6 +55,26 @@ def home():
         logger.debug(traceback.format_exc())
         return Response("Erreur interne du serveur", status=500)
 
+@app.route('/dashboard')
+def dashboard():
+    try:
+        logger.info("Accès au tableau de bord")
+        return read_html_file('dashboard.html')
+    except Exception as e:
+        logger.error(f"Erreur lors du rendu du tableau de bord: {str(e)}")
+        logger.debug(traceback.format_exc())
+        return Response("Erreur interne du serveur", status=500)
+
+@app.route('/login')
+def login():
+    try:
+        logger.info("Accès à la page de connexion")
+        return read_html_file('login.html')
+    except Exception as e:
+        logger.error(f"Erreur lors du rendu de la page de connexion: {str(e)}")
+        logger.debug(traceback.format_exc())
+        return Response("Erreur interne du serveur", status=500)
+
 @app.route('/<path:filename>')
 def serve_static(filename):
     """Servir tous les autres fichiers statiques"""

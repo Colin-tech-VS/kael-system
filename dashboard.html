@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Kael</title>
+    <meta name="description" content="Tableau de bord de Kael, votre assistant IA professionnel">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h1>KAEL</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#fonctionnalites">Fonctionnalités</a></li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="dashboard.html" class="active">Tableau de Bord</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-section" style="padding: 100px 0; background: rgba(15, 23, 42, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tableau de Bord</h2>
+                <p>Vue d'ensemble de vos activités et performances</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- Statistiques principales -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-line"></i> Statistiques Principales</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Utilisateurs</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>99.9%</h3>
+                            <p>Disponibilité</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Support</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activités récentes -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-history"></i> Activités Récentes</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Génération d'idées créatives</h4>
+                                <p>Création de 15 idées pour votre projet</p>
+                                <span class="activity-time">Il y a 15 minutes</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Code généré</h4>
+                                <p>Implémentation d'une fonction de tri</p>
+                                <span class="activity-time">Il y a 1 heure</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Rédaction de document</h4>
+                                <p>Création d'un rapport de performance</p>
+                                <span class="activity-time">Il y a 3 heures</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fonctionnalités rapides -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-bolt"></i> Fonctionnalités Rapides</h3>
+                    <div class="quick-actions">
+                        <a href="#" class="btn"><i class="fas fa-lightbulb"></i> Nouvelle idée</a>
+                        <a href="#" class="btn"><i class="fas fa-code"></i> Code</a>
+                        <a href="#" class="btn"><i class="fas fa-file-alt"></i> Rédaction</a>
+                        <a href="#" class="btn"><i class="fas fa-chart-line"></i> Analyse</a>
+                    </div>
+                </div>
+                
+                <!-- Prochaines actions -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-tasks"></i> Prochaines Actions</h3>
+                    <div class="todo-list">
+                        <div class="todo-item">
+                            <div class="todo-checkbox">
+                                <input type="checkbox" id="task1">
+                                <label for="task1"></label>
+                            </div>
+                            <div class="todo-content">
+                                <h4>Finaliser le rapport de projet</h4>
+                                <p>À faire avant vendredi</p>
+                            </div>
+                        </div>
+                        <div class="todo-item">
+                            <div class="todo-checkbox">
+                                <input type="checkbox" id="task2" checked>
+                                <label for="task2"></label>
+                            </div>
+                            <div class="todo-content">
+                                <h4>Planifier la réunion avec l'équipe</h4>
+                                <p>Préparation des points à aborder</p>
+                            </div>
+                        </div>
+                        <div class="todo-item">
+                            <div class="todo-checkbox">
+                                <input type="checkbox" id="task3">
+                                <label for="task3"></label>
+                            </div>
+                            <div class="todo-content">
+                                <h4>Revue de la documentation technique</h4>
+                                <p>Mettre à jour les spécifications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>KAEL</h3>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html#accueil">Accueil</a></li>
+                            <li><a href="index.html#fonctionnalites">Fonctionnalités</a></li>
+                            <li><a href="index.html#a-propos">À propos</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                            <li><a href="dashboard.html">Tableau de Bord</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Réseaux Sociaux</h4>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Liens Utiles</h4>
+                        <ul>
+                            <li><a href="#">Conditions d'utilisation</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kael. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation des éléments au scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .advantage-item, .stat-item, .about-image, .contact-form');
+        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .advantage-item, .stat-item, .about-image, .contact-form, .dashboard-card, .activity-item, .todo-item');
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3;
@@ -99,12 +99,32 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm.reset();
         });
     }
+    
+    // Login form handling
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Validation basique
+            if (email && password) {
+                // Ici on pourrait envoyer les données au serveur
+                alert('Connexion réussie ! Redirection vers le tableau de bord...');
+                // Redirection vers le tableau de bord après connexion
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Veuillez remplir tous les champs.');
+            }
+        });
+    }
 });
 
 // Fonction pour gérer les animations au chargement
 function initKaelAnimations() {
     // Animation des éléments de la page
-    const elements = document.querySelectorAll('section, .feature-card, .testimonial-card, .btn, .advantage-item, .stat-item, .about-image, .contact-form');
+    const elements = document.querySelectorAll('section, .feature-card, .testimonial-card, .btn, .advantage-item, .stat-item, .about-image, .contact-form, .dashboard-card, .activity-item, .todo-item');
     let delay = 0;
     
     elements.forEach((el, index) => {
