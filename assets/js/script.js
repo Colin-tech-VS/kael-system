@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation des éléments au scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .stat-item, .about-image, .contact-form');
+        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .stat-item, .about-image, .contact-form, .ecosystem-card');
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3;
@@ -57,6 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Effet de survol sur les cartes
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Effet de survol sur les cartes de l'écosystème
+    const ecosystemCards = document.querySelectorAll('.ecosystem-card');
+    ecosystemCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px)';
         });
@@ -122,6 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Interaction avec les cartes de l'écosystème
+    const ecosystemCardsInteractive = document.querySelectorAll('.ecosystem-card');
+    ecosystemCardsInteractive.forEach(card => {
+        card.addEventListener('click', function() {
+            const moduleName = this.getAttribute('data-module');
+            if (moduleName) {
+                // Ici on pourrait afficher plus d'informations sur le module
+                console.log(`Module sélectionné: ${moduleName}`);
+                // Pour l'instant, on fait un simple effet visuel
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            }
+        });
+    });
 });
 
 // Fonction pour générer les étoiles dynamiquement
