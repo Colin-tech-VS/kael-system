@@ -3,8 +3,6 @@ import os
 import logging
 import sys
 import traceback
-import time
-import json
 
 # Configurer le logging
 logging.basicConfig(
@@ -115,17 +113,6 @@ def health():
     """Endpoint de santé pour les checks de déploiement"""
     try:
         logger.info("Health check effectué")
-        # Ajout d'une vérification supplémentaire pour s'assurer que l'application est vraiment opérationnelle
-        start_time = time.time()
-        # Effectuer une petite opération pour vérifier la stabilité
-        _ = str(time.time())
-        end_time = time.time()
-        
-        # Vérification de la latence
-        if end_time - start_time > 1.0:  # Si cela prend plus de 1 seconde, c'est problématique
-            logger.warning("Health check trop lent")
-            return {"status": "unhealthy", "message": "Application trop lente"}, 500
-        
         # Vérification que les fichiers de base sont accessibles
         try:
             # Vérifier l'accès à index.html
@@ -169,6 +156,7 @@ def internal_error(error):
 
 # Ajout de l'import nécessaire pour le handler d'erreur 404
 from flask import request
+import time
 
 if __name__ == '__main__':
     # Utiliser un port spécifique pour éviter les conflits

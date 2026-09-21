@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation des éléments au scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .advantage-item, .stat-item, .about-image, .contact-form, .dashboard-card, .activity-item, .todo-item');
+        const elements = document.querySelectorAll('.feature-card, .testimonial-card, .btn, .section-header h2, .section-header p, .stat-item, .about-image, .contact-form');
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3;
@@ -158,29 +158,6 @@ function generateStars() {
         starsContainer.appendChild(star);
     }
 }
-
-// Fonction pour gérer les animations au chargement
-function initKaelAnimations() {
-    // Animation des éléments de la page
-    const elements = document.querySelectorAll('section, .feature-card, .testimonial-card, .btn, .advantage-item, .stat-item, .about-image, .contact-form, .dashboard-card, .activity-item, .todo-item');
-    let delay = 0;
-    
-    elements.forEach((el, index) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        setTimeout(() => {
-            el.style.opacity = 1;
-            el.style.transform = 'translateY(0)';
-        }, delay);
-        
-        delay += 100;
-    });
-}
-
-// Initialiser les animations au chargement
-document.addEventListener('DOMContentLoaded', initKaelAnimations);
 
 // Animation personnalisée pour les boutons
 const style = document.createElement('style');
