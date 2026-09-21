@@ -1,5 +1,8 @@
 // Script JavaScript pour le site Kael
 document.addEventListener('DOMContentLoaded', function() {
+    // Générer les étoiles dynamiquement
+    generateStars();
+    
     // Gestion du menu mobile
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navbar = document.querySelector('.navbar');
@@ -120,6 +123,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Fonction pour générer les étoiles dynamiquement
+function generateStars() {
+    const starsContainer = document.getElementById('stars');
+    if (!starsContainer) return;
+    
+    const starCount = 200;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Position aléatoire
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Taille aléatoire
+        const size = Math.random() * 3 + 1;
+        
+        // Opacité aléatoire
+        const opacity = Math.random() * 0.8 + 0.2;
+        
+        // Durée d'animation aléatoire
+        const duration = Math.random() * 5 + 3;
+        
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.setProperty('--opacity', opacity);
+        star.style.setProperty('--duration', `${duration}s`);
+        
+        starsContainer.appendChild(star);
+    }
+}
 
 // Fonction pour gérer les animations au chargement
 function initKaelAnimations() {
