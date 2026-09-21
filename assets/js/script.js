@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animation de chargement
     const body = document.body;
     body.style.opacity = 0;
-    body.style.transition = 'opacity 0.5s ease';
+    body.style.transition = 'opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     
     setTimeout(() => {
         body.style.opacity = 1;
@@ -149,6 +149,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.style.transform = 'scale(1)';
                 }, 200);
             }
+        });
+    });
+    
+    // Amélioration des animations pour les éléments interactifs
+    const interactiveElements = document.querySelectorAll('.logo, .btn, .feature-card, .ecosystem-card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
     });
 });
